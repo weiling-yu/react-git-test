@@ -20,7 +20,7 @@ class Main extends Component{
     });
   };
   render(){
-      console.log("main state", this.state)
+    //   console.log("main state", this.state)
     return (
       <div className="App">
         <Navbar dark color="primary">

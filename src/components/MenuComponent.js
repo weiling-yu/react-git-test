@@ -1,23 +1,26 @@
-import React, {Component} from 'react';
+import React from 'react';
 // import './Menu.css';
 import {Card, CardImg, CardImgOverlay, CardTitle} from 'reactstrap';
 
-
-class Menu extends Component {
-    constructor(props){
-        super(props);
+    /* Function only return view. Two way to decalre functional component:
+    1. function RenderMenuItem (props){} : 
+    2. Props is object. if you know whats will be passing then can pass like below*/
+    function RenderMenuItem ({dish, onClick}){
+        return (
+            <Card onClick={()=> onClick(dish.id)}>
+                <CardImg width='100%' src={dish.image} alt={dish.name} />
+                <CardImgOverlay>
+                    <CardTitle>{dish.name}</CardTitle>
+                </CardImgOverlay>
+            </Card>
+        );
     }
 
-    render(){
-        const menu=this.props.dishes.map((dish)=>{
+    const Menu = (props) => {
+        const menu = props.dishes.map((dish)=>{
             return (
                 <div key={dish.id} className="col-12 col-md-5 m-1">
-                    <Card onClick={()=> this.props.onClick(dish.id)}>
-                        <CardImg width='100%' src={dish.image} alt={dish.name} />
-                        <CardImgOverlay>
-                            <CardTitle>{dish.name}</CardTitle>
-                        </CardImgOverlay>
-                    </Card>
+                    <RenderMenuItem dish={dish} onClick={props.onClick}/>
                 </div>
             )
         });
@@ -30,6 +33,4 @@ class Menu extends Component {
             </div>
         );
     }
-} 
-
 export default Menu;
