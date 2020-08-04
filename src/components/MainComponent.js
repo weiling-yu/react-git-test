@@ -65,4 +65,4 @@ class Main extends Component{
   }
 }
 
-export default withRouter(connect(mapStateToProps)(main));
+export default withRouter(connect(mapStateToProps)(Main));
