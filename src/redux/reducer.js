@@ -7,7 +7,8 @@ export const initialState = {
     dishes: DISHES,
     comments: COMMENTS,
     promotions: PROMOTIONS,
-    leaders: LEADERS
+    leaders: LEADERS,
+    isModalOpen: false
 };
 
 export const Reducer = (state = initialState, action) => {

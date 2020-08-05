@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Menu from './MenuComponent';
-import DishDetail from './DishdetailComponent';
+import { DishDetail } from './DishdetailComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
@@ -16,7 +16,8 @@ const mapStateToProps = state => {
         dishes: state.dishes,
         comments: state.comments,
         promotions: state.promotions,
-        leaders: state.leaders
+        leaders: state.leaders,
+        isModalOpen: false
     }
 }
 
@@ -52,9 +53,9 @@ class Main extends Component{
       <div>
         <Header />
         <Switch>
-            <Route path="/home" component={HomePage} />
+        <Route path="/home" component={HomePage} />
             <Route exact path="/menu" component={()=> <Menu dishes={this.props.dishes}/>} />
-            <Route path="/menu/:dishId" component={DishWithId} />
+            <Route path="/menu/:dishId" component={DishWithId} isModalOpen={this.props.isModalOpen} />
             <Route exact path="/contactus" component={Contact} />
             <Route exact path="/aboutus" component={()=> <Aboutus leaders={this.props.leaders}/>} />
             <Redirect to="/home"/>
