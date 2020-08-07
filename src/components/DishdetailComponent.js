@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {Control, LocalForm, Errors} from 'react-redux-form';
 import { render } from '@testing-library/react';
 import {Loading} from './LoadingComponent';
+import {baseUrl} from '../shared/baseUrl';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -102,7 +103,7 @@ class CommentForm extends Component {
         return(
             <div>
                 <Card>
-                    <CardImg top src={dish.image} alt={dish.name}></CardImg>
+                    <CardImg top src={baseUrl + dish.image} alt={dish.name}></CardImg>
                     <CardBody>
                         <CardTitle>{dish.name}</CardTitle>
                         <CardText>{dish.description}</CardText>
@@ -147,6 +148,11 @@ class CommentForm extends Component {
                     </div>
                 </div>
             );
+        }
+        else if (props == null){
+            return (
+                <div></div>
+            )
         }
         else if (props.errMess){
             return(
