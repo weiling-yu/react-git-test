@@ -54,7 +54,7 @@ export const postFeedback = (firstname, lastname, telnum, email, agree, contactT
             message: response_json_dis.payload.feedback.message,
             id: response_json_dis.payload.feedback.id
         }
-        alert(`Thank you for your feedback!\n ${JSON.stringify(confirmation)}`)})
+        alert(`Thank you for your feedback!\n ${JSON.stringify(confirmresation)}`)})
     .catch(error =>  { console.log('post feedback', error.message); alert('Your feedback could not be posted\nError: '+ error.message); });
 };
 
