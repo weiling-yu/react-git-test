@@ -1,4 +1,4 @@
-Course / Front-End Web Development with React / Use of reactstrap, single-page app, controlled forms, React-Redux
+Course / Front-End Web Development with React / React-Redux : forms, animation, thunk and validation.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
